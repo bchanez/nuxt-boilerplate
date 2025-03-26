@@ -1,10 +1,27 @@
 {
-    // Disable the default formatter, use eslint instead
-    "prettier.enable": false,
-    "editor.formatOnSave": false, 
-    // Auto fix
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit",
-      "source.organizeImports": "never"
-    }, 
-  }  
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+  // Auto fix
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  // settings for tailwind
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "ui"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "ui:\\s*{([^)]*)\\s*}",
+      "(?:'|\"|`)([^']*)(?:'|\"|`)"
+    ]
+  ]
+}
