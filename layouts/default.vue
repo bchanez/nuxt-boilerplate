@@ -1,9 +1,8 @@
 <template>
-  <UApp>
+  <div>
     <AppHeader />
-    <UMain>
-      <slot />
-    </UMain>
+    <slot />
+    <SectionContact />
     <AppFooter />
-  </UApp>
+  </div>
 </template>
