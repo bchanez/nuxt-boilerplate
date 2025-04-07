@@ -1,3 +1,5 @@
 <template>
-  <UHeader>header</UHeader>
+  <div>
+    header
+  </div>
 </template>

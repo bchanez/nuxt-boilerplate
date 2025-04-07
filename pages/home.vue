@@ -1,5 +1,5 @@
 <template>
-  <UContainer>
+  <div>
     home
-  </ucontainer>
+  </div>
 </template>

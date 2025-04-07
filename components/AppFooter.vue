@@ -1,3 +1,5 @@
 <template>
-  <UFooter>footer</UFooter>
+  <div>
+    footer
+  </div>
 </template>
