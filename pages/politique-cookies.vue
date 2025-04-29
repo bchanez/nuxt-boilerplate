@@ -32,12 +32,6 @@ useHead({
       </p>
 
       <p>
-        Nous utilisons uniquement un mécanisme de stockage local (localStorage) pour mémoriser certaines préférences,
-        comme la fermeture d’une fenêtre d’information. Ces données sont conservées uniquement dans votre navigateur
-        et ne sont pas partagées ni utilisées à des fins de suivi.
-      </p>
-
-      <p>
         Nous respectons pleinement votre vie privée. Pour en savoir plus, vous pouvez consulter notre
         <a
           href="/politique-confidentialite"
