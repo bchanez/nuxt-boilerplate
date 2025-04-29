@@ -30,7 +30,7 @@ useHead({
           <p>
             Le site <strong>[entreprise]</strong> est édité par :<br>
             <strong>B. Chanez Consultant</strong><br>
-            Forme juridique : SARL (libérale non réglementée)<br>
+            Forme juridique : EURL<br>
             SIRET : 938 945 896 00018<br>
             Siège social : 60 rue François 1er, 75008 Paris, France<br>
             Code APE : 5829C – Édition de logiciels applicatifs<br>
