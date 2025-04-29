@@ -90,7 +90,7 @@ useHead({
             Cookies
           </h2>
           <p>
-            Ce site n’utilise pas de cookies, à l’exception d’un enregistrement local de la fermeture d’une fenêtre d’information (via localStorage). Aucune information n’est transmise à des tiers. Pour en savoir plus, consultez notre <a
+            Ce site n’utilise pas de cookies. Aucune information n’est transmise à des tiers. Pour en savoir plus, consultez notre <a
               href="/politique-cookies"
               class="underline text-blue-600 hover:text-blue-800"
             >politique de cookies</a>.
