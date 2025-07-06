@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 definePageMeta({
   colorMode: 'light',
 })
@@ -9,6 +9,7 @@ useHead({
       name: 'description',
       content: 'Mentions légales du site [entreprise] — éditeur, hébergeur, propriété intellectuelle, confidentialité.',
     },
+    { name: 'robots', content: 'noindex, follow' },
   ],
 })
 </script>
@@ -17,9 +18,9 @@ useHead({
   <div class="max-w-7xl mx-auto py-20 px-4 space-y-16">
     <div class="flex flex-col space-y-16">
       <div class="text-center space-y-2">
-        <h2 class="text-5xl font-bold">
+        <h1 class="text-5xl font-bold">
           Mentions légales
-        </h2>
+        </h1>
       </div>
 
       <div class="space-y-8 text-lg">
@@ -62,6 +63,7 @@ useHead({
             Site : <a
               href="https://vercel.com"
               target="_blank"
+              rel="noopener noreferrer"
               class="underline text-blue-600 hover:text-blue-800"
             >vercel.com</a>
           </p>

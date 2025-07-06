@@ -1,27 +1,28 @@
 {
-    "recommendations": [
-      // Linting / Formatting
-      "dbaeumer.vscode-eslint",
-      "usernamehw.errorlens",
-      "yoavbls.pretty-ts-errors",
-      // PR management / Reviewing
-      "github.vscode-pull-request-github",
-      "eamodio.gitlens",
-      // Showing todo comments
-      "gruntfuggly.todo-tree",
-      "aaron-bond.better-comments",
-      // Collaborating
-      "ms-vsliveshare.vsliveshare",
-      // Github Actions
-      "github.vscode-github-actions", // see https://github.com/nektos/act
-      // Language Support
-      "VisualStudioExptTeam.vscodeintellicode",
-      "Vue.volar",
-      "bradlc.vscode-tailwindcss",
-      // Test
-      "vitest.explorer",
-      // docker
-      "ms-azuretools.vscode-docker",
-      "ms-vscode-remote.remote-containers"
-    ]
-  }
+  "recommendations": [
+    // Linting / Formatting
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens",
+    "yoavbls.pretty-ts-errors",
+    "deque-systems.vscode-axe-linter",
+    // PR management / Reviewing
+    "github.vscode-pull-request-github",
+    "eamodio.gitlens",
+    // Showing todo comments
+    "gruntfuggly.todo-tree",
+    "aaron-bond.better-comments",
+    // Collaborating
+    "ms-vsliveshare.vsliveshare",
+    // Github Actions
+    "github.vscode-github-actions", // see https://github.com/nektos/act
+    // Language Support
+    "VisualStudioExptTeam.vscodeintellicode",
+    "Vue.volar",
+    "bradlc.vscode-tailwindcss",
+    // Test
+    "vitest.explorer",
+    // docker
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers"
+  ]
+}

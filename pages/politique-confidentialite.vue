@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 definePageMeta({
   colorMode: 'light',
 })
@@ -9,6 +9,7 @@ useHead({
       name: 'description',
       content: 'Notre politique de confidentialité explique comment nous protégeons vos données personnelles sur le site [entreprise].',
     },
+    { name: 'robots', content: 'noindex, follow' },
   ],
 })
 </script>
@@ -16,9 +17,9 @@ useHead({
 <template>
   <div class="max-w-5xl mx-auto py-20 px-4 space-y-16">
     <div class="text-center">
-      <h2 class="text-5xl font-bold">
+      <h1 class="text-5xl font-bold">
         Politique de confidentialité
-      </h2>
+      </h1>
     </div>
 
     <div class="space-y-6 text-lg">
@@ -37,7 +38,7 @@ useHead({
       <p>
         Pour toute question concernant la confidentialité ou vos droits, vous pouvez nous contacter à
         <a
-          href="mailto:contact@ "
+          href="mailto:contact@"
           class="underline text-blue-600 hover:text-blue-800"
         >contact@</a>.
       </p>

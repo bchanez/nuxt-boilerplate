@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 definePageMeta({
   colorMode: 'light',
 })
@@ -9,6 +9,7 @@ useHead({
       name: 'description',
       content: 'Plan du site [entreprise] : accédez rapidement à toutes les sections du site.',
     },
+    { name: 'robots', content: 'noindex, follow' },
   ],
 })
 </script>
@@ -16,9 +17,9 @@ useHead({
 <template>
   <div class="max-w-5xl mx-auto py-20 px-4 space-y-16">
     <div class="text-center">
-      <h2 class="text-5xl">
+      <h1 class="text-5xl">
         Plan du site
-      </h2>
+      </h1>
     </div>
     <div class="space-y-6">
       <ul class="list-disc list-inside space-y-2 text-lg">

@@ -1,2 +1,5 @@
+# robots.txt
 User-agent: *
 Disallow:
+
+Sitemap: site.fr/sitemap.xml

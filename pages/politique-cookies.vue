@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 definePageMeta({
   colorMode: 'light',
 })
@@ -9,6 +9,7 @@ useHead({
       name: 'description',
       content: 'Ce site n’utilise pas de cookies. [entreprise] respecte votre vie privée.',
     },
+    { name: 'robots', content: 'noindex, follow' },
   ],
 })
 </script>
@@ -16,9 +17,9 @@ useHead({
 <template>
   <div class="max-w-5xl mx-auto py-20 px-4 space-y-16">
     <div class="text-center">
-      <h2 class="text-5xl font-bold">
+      <h1 class="text-5xl font-bold">
         Politique de cookies
-      </h2>
+      </h1>
     </div>
 
     <div class="space-y-6 text-lg">
