@@ -10,7 +10,6 @@
     <main id="main-content">
       <slot />
     </main>
-    <SectionContact />
     <AppFooter />
   </div>
 </template>
