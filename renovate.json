@@ -8,7 +8,7 @@
     ],
     "minimumReleaseAge": "30 days",
     "schedule": [
-        "before 5am on the first Sunday of the month"
+        "monthly"
     ],
     "packageRules": [
         {
@@ -21,16 +21,7 @@
             "groupName": "Dépendances non majeures"
         }
     ],
-    "labels": [
-        "dependencies"
-    ],
-    "separateMinorPatch": false,
-    "ignoreDeps": [],
     "dependencyDashboard": true,
     "prHourlyLimit": 0,
-    "prConcurrentLimit": 4,
-    "major": {
-        "groupName": "Mises à jour majeures",
-        "automerge": false
-    }
+    "prConcurrentLimit": 4
 }
