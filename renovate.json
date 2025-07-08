@@ -1,6 +1,36 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended"
+    ],
+    "baseBranches": [
+        "main"
+    ],
+    "minimumReleaseAge": "30 days",
+    "schedule": [
+        "before 5am on the first Sunday of the month"
+    ],
+    "packageRules": [
+        {
+            "matchUpdateTypes": [
+                "minor",
+                "patch",
+                "pin",
+                "digest"
+            ],
+            "groupName": "Dépendances non majeures"
+        }
+    ],
+    "labels": [
+        "dependencies"
+    ],
+    "separateMinorPatch": false,
+    "ignoreDeps": [],
+    "dependencyDashboard": true,
+    "prHourlyLimit": 0,
+    "prConcurrentLimit": 4,
+    "major": {
+        "groupName": "Mises à jour majeures",
+        "automerge": false
+    }
 }
