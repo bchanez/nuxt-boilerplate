@@ -50,6 +50,18 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
+    },
+    nodeTsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
+    },
+  },
   eslint: {
     config: {
       stylistic: true,

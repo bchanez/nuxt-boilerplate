@@ -42,3 +42,6 @@ jobs:
 
       - name: Linter
         run: cd nuxt-app && pnpm run lint
+
+      - name: Type checking
+        run: cd nuxt-app && pnpm run typecheck
