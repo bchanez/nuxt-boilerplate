@@ -45,3 +45,9 @@ jobs:
 
       - name: Type checking
         run: cd nuxt-app && pnpm run typecheck
+
+      - name: Validate PR title
+        if: github.event_name == 'pull_request'
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          echo $PR_TITLE | npx commitlint

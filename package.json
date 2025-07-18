@@ -6,7 +6,10 @@
     "dev": "concurrently \"pnpm --filter nuxt-app dev\""
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "husky": "^9.1.7"
   },
   "packageManager": "pnpm@10.12.4",
   "pnpm": {
