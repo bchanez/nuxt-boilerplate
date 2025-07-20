@@ -5,10 +5,6 @@ definePageMeta({
 useHead({
   title: 'Conditions Générales d\'Utilisation | [entreprise]',
   meta: [
-    {
-      name: 'description',
-      content: 'Les conditions générales d\'utilisation du site [entreprise], y compris les droits et obligations des utilisateurs.',
-    },
     { name: 'robots', content: 'noindex, follow' },
   ],
 })

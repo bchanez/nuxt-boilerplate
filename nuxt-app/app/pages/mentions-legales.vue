@@ -5,10 +5,6 @@ definePageMeta({
 useHead({
   title: 'Mentions légales | [entreprise]',
   meta: [
-    {
-      name: 'description',
-      content: 'Mentions légales du site [entreprise] — éditeur, hébergeur, propriété intellectuelle, confidentialité.',
-    },
     { name: 'robots', content: 'noindex, follow' },
   ],
 })

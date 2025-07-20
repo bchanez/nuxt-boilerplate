@@ -5,10 +5,6 @@ definePageMeta({
 useHead({
   title: 'Politique de confidentialité | [entreprise]',
   meta: [
-    {
-      name: 'description',
-      content: 'Notre politique de confidentialité explique comment nous protégeons vos données personnelles sur le site [entreprise].',
-    },
     { name: 'robots', content: 'noindex, follow' },
   ],
 })

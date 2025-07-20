@@ -5,10 +5,6 @@ definePageMeta({
 useHead({
   title: 'Plan du site | [entreprise]',
   meta: [
-    {
-      name: 'description',
-      content: 'Plan du site [entreprise] : accédez rapidement à toutes les sections du site.',
-    },
     { name: 'robots', content: 'noindex, follow' },
   ],
 })

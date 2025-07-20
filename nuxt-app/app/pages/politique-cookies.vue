@@ -5,10 +5,6 @@ definePageMeta({
 useHead({
   title: 'Politique de cookies | [entreprise]',
   meta: [
-    {
-      name: 'description',
-      content: 'Ce site n’utilise pas de cookies. [entreprise] respecte votre vie privée.',
-    },
     { name: 'robots', content: 'noindex, follow' },
   ],
 })
