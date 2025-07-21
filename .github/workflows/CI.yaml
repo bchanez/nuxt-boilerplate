@@ -40,14 +40,20 @@ jobs:
       - name: 📦 Install dependencies
         run: pnpm install
 
+      - name: Validate PR title
+        if: github.event_name == 'pull_request'
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          echo $PR_TITLE | npx commitlint
+
       - name: Linter
         run: cd nuxt-app && pnpm run lint
 
       - name: Type checking
         run: cd nuxt-app && pnpm run typecheck
 
-      - name: Validate PR title
-        if: github.event_name == 'pull_request'
-        run: |
-          PR_TITLE="${{ github.event.pull_request.title }}"
-          echo $PR_TITLE | npx commitlint
+      - name: Install Playwright Browsers
+        run: npx playwright install
+
+      - name: Visual Regression Testing
+        run: cd nuxt-app && pnpm run test:visual
