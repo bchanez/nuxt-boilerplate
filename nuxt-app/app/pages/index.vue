@@ -17,6 +17,6 @@ useHead({
 
 <template>
   <div>
-    home
+    homeasdfasdf
   </div>
 </template>
