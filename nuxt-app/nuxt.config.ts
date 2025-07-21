@@ -2,7 +2,7 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/image', 'motion-v/nuxt', 'shadcn-nuxt', '@nuxtjs/sitemap', '@nuxtjs/robots'],
+  modules: ['@nuxt/eslint', '@nuxt/image', 'motion-v/nuxt', 'shadcn-nuxt', '@nuxtjs/sitemap', '@nuxtjs/robots', '@nuxt/test-utils/module'],
   plugins: [
     '~/plugins/ua-detect.server.ts',
   ],

@@ -11,7 +11,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky",
-    "typecheck": "nuxt prepare && vue-tsc -b --noEmit"
+    "typecheck": "nuxt prepare && vue-tsc -b --noEmit",
+    "test:visual": "npx playwright test",
+    "test:visualupdate": "npx playwright test --update-snapshots"
   },
   "dependencies": {
     "@nuxt/eslint": "1.4.1",
@@ -36,9 +38,15 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@nuxt/test-utils": "^3.19.2",
+    "@playwright/test": "^1.54.1",
     "@types/node": "^22.14.0",
+    "@vue/test-utils": "^2.4.6",
     "eslint": "^9.23.0",
+    "happy-dom": "^18.0.1",
+    "playwright-core": "^1.54.1",
     "typescript": "^5.8.2",
+    "vitest": "^3.2.4",
     "vue-tsc": "^3.0.2"
   }
 }

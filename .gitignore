@@ -25,3 +25,5 @@ logs
 
 # Sanity
 .sanity
+
+test-results/
