@@ -58,21 +58,18 @@ jobs:
       - name: Visual Regression Testing
         run: cd nuxt-app && pnpm run test:visual
       
-      - name: Generate updated visual snapshots
-        if: failure()
-        run: cd nuxt-app && pnpm run test:visualupdate
-
-      - name: Préparer les artefacts VRT
+      - name: Prepare VRT artifacts and generate updated visual snapshots
         if: failure()
         run: |
           mkdir -p vrt-artifacts/test-results
-          mkdir -p vrt-artifacts/snapshots
           cp -r nuxt-app/test-results/* vrt-artifacts/test-results/
-          cp -r nuxt-app/tests/visual/visual.spec.ts-snapshots/* vrt-artifacts/snapshots/
+          cd nuxt-app && pnpm run test:visualupdate
 
       - name: Upload Playwright screenshots
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-screenshots
-          path: vrt-artifacts
+          path: |
+            vrt-artifacts/test-results/
+            nuxt-app/tests/visual/visual.spec.ts-snapshots/
