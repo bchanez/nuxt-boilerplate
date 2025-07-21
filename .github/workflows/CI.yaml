@@ -60,7 +60,7 @@ jobs:
       
       - name: Upload Playwright screenshots
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-screenshots
           path: nuxt-app/test-results/
