@@ -57,3 +57,11 @@ jobs:
 
       - name: Visual Regression Testing
         run: cd nuxt-app && pnpm run test:visual
+      
+      - name: Upload Playwright screenshots
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-screenshots
+          path: nuxt-app/test-results/
+
