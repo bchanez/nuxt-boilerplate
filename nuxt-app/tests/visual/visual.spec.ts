@@ -10,15 +10,15 @@ const viewports = [
 
 const routes = ['/']
 
-for (const route of routes) {
-  for (const viewport of viewports) {
-    test(`should match snapshot on ${route} (${viewport.name})`, async () => {
-      const page = await createPage(route)
+test(`visual regression: all routes on all viewports`, async () => {
+  const page = await createPage()
+  for (const route of routes) {
+    for (const viewport of viewports) {
       await page.setViewportSize({ width: viewport.width, height: viewport.height })
-
+      await page.goto(route, { waitUntil: 'domcontentloaded' })
       expect(await page.screenshot({ fullPage: true })).toMatchSnapshot(
         `${viewport.name}${route.replace(/\W+/g, '_')}.png`,
       )
-    })
+    }
   }
-}
+})
