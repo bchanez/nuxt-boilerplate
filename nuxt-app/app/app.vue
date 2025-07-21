@@ -10,3 +10,4 @@ import { SpeedInsights } from '@vercel/speed-insights/nuxt'
   <Analytics />
   <SpeedInsights />
 </template>
+asdfasdf
