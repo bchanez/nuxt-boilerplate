@@ -1,5 +1,5 @@
 import { defineEventHandler } from 'h3'
-import type { Review } from '~/types/Api'
+import type { Review } from '~~/shared/types/api.'
 
 interface GooglePlaceResponse {
   result: {
