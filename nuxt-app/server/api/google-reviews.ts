@@ -1,5 +1,5 @@
 import { defineEventHandler } from 'h3'
-import type { Review } from '~~/shared/types/api.'
+import type { Review } from '~/types/Api'
 
 interface GooglePlaceResponse {
   result: {
@@ -20,8 +20,10 @@ export default defineEventHandler(async (event) => {
     const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&language=fr&key=${apiKey}`
     const response = await $fetch<GooglePlaceResponse>(url)
 
+    setHeader(event, 'Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=300')
+    setHeader(event, 'Content-Type', 'application/json; charset=utf-8')
     setHeader(event, 'X-Cache-Origin', 'server')
-    setHeader(event, 'Cache-Control', 's-maxage=86400, stale-while-revalidate=300')
+
     return response.result?.reviews?.filter(review => review.rating >= 4)
   }
   catch {
