@@ -1,0 +1,9 @@
+name: nuxt-boilerplate-dev
+services:
+  dev:
+    build:
+      context: ../../
+      dockerfile: docker/dev/dockerfile
+    command: sleep infinity
+    volumes:
+      - ../..:/app

@@ -16,13 +16,15 @@
     // Github Actions
     "github.vscode-github-actions", // see https://github.com/nektos/act
     // Language Support
-    "VisualStudioExptTeam.vscodeintellicode",
-    "Vue.volar",
+    "GitHub.copilot-chat",
     "bradlc.vscode-tailwindcss",
+    "Vue.volar",
     // Test
     "vitest.explorer",
     // docker
     "ms-azuretools.vscode-docker",
-    "ms-vscode-remote.remote-containers"
+    "ms-vscode-remote.remote-containers",
+    // AI
+    "Anthropic.claude-code"
   ]
 }

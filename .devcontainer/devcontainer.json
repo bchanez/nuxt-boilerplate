@@ -1,0 +1,9 @@
+{
+  "name": "nuxt-boilerplate",
+  "dockerComposeFile": "../docker/dev/docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+  "postCreateCommand": "sh .devcontainer/install-extensions.sh && cp -n nuxt-app/.env.example nuxt-app/.env"
+}
