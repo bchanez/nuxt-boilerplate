@@ -96,7 +96,7 @@ docker run --rm \
   -v $(pwd)/../..:/app \
   -w /app/nuxt-app \
   mcr.microsoft.com/playwright:v1.54.0-noble \
-  bash -c "npm install -g pnpm && pnpm install --frozen-lockfile && npx playwright test --project=visual --update-snapshots"
+  bash -c "npm install @playwright/test && npx playwright test --project=visual --update-snapshots"
 
 # 3. Cleanup
 docker compose down -v

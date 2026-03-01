@@ -90,7 +90,7 @@ jobs:
             -v ${{ github.workspace }}:/app \
             -w /app/nuxt-app \
             mcr.microsoft.com/playwright:v1.54.0-noble \
-            bash -c "npm install -g pnpm && pnpm install --frozen-lockfile && npx playwright test --project=visual"
+            bash -c "npm install @playwright/test && npx playwright test --project=visual"
 
       - name: Upload VRT screenshots
         if: failure()
