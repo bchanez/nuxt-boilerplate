@@ -83,22 +83,21 @@ jobs:
           docker compose logs app
 
       - name: Visual Regression Testing
-        run: cd nuxt-app && pnpm test:visual
-        env:
-          CI: true
-
-      - name: Generate updated visual snapshots
-        if: failure()
-        run: cd nuxt-app && pnpm test:visualupdate
+        run: |
+          docker run --rm \
+            --network nuxt-boilerplate-test_default \
+            -e APP_URL=http://app:3000 \
+            -v ${{ github.workspace }}:/app \
+            -w /app/nuxt-app \
+            mcr.microsoft.com/playwright:v1.54.0-noble \
+            bash -c "npm install -g pnpm && pnpm install --frozen-lockfile && npx playwright test --project=visual"
 
       - name: Upload VRT screenshots
         if: failure()
         uses: actions/upload-artifact@v6
         with:
           name: playwright-screenshots
-          path: |
-            nuxt-app/test-results/
-            nuxt-app/tests/visual/visual.spec.ts-snapshots/
+          path: nuxt-app/test-results/
 
       - name: Run E2E tests
         run: |

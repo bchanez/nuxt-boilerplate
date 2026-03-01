@@ -79,9 +79,34 @@ Voir `nuxt-app/.env.example` :
 - `GOOGLE_API_KEY` - Clé API Google Places
 - `GOOGLE_PLACE_ID` - ID du lieu Google
 
+## Tests visuels (visual regression)
+
+Les tests visuels utilisent l'image Docker `mcr.microsoft.com/playwright:v1.54.0-noble` pour garantir un rendu identique en dev et en CI (mêmes fonts, même navigateur).
+
+**Mettre à jour les snapshots** (depuis un terminal hôte, pas le devcontainer) :
+
+```bash
+# 1. Lancer l'app (depuis la racine du projet)
+cd docker/test && docker compose up -d --wait
+
+# 2. Mettre à jour les snapshots (monte tout le projet pour accès au lockfile)
+docker run --rm \
+  --network nuxt-boilerplate-test_default \
+  -e APP_URL=http://app:3000 \
+  -v $(pwd)/../..:/app \
+  -w /app/nuxt-app \
+  mcr.microsoft.com/playwright:v1.54.0-noble \
+  bash -c "npm install -g pnpm && pnpm install --frozen-lockfile && npx playwright test --project=visual --update-snapshots"
+
+# 3. Cleanup
+docker compose down -v
+```
+
+**Lors d'un bump de Playwright** : mettre à jour la version de l'image dans `CI.yaml` et dans les commandes ci-dessus (rechercher `mcr.microsoft.com/playwright:v`).
+
 ## CI/CD
 
 GitHub Actions (`.github/workflows/CI.yaml`) :
 
-1. **CI** : commitlint (PR) → lint → typecheck → build → visual regression
-2. **E2E** : démarre Docker → Playwright → cleanup
+1. **CI** : commitlint (PR) → lint → typecheck
+2. **E2E** : démarre Docker → visual regression (via image Playwright) → E2E Playwright → cleanup
