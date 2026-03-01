@@ -89,8 +89,10 @@ jobs:
       - name: Visual Regression Testing
         run: |
           docker run --rm \
+            --user $(id -u):$(id -g) \
             --network nuxt-boilerplate-test_default \
             -e APP_URL=http://app:3000 \
+            -e HOME=/tmp \
             -v ${{ github.workspace }}:/app \
             -w /app/nuxt-app \
             mcr.microsoft.com/playwright:v${{ steps.pw-version.outputs.version }}-noble \
