@@ -68,6 +68,10 @@ jobs:
           pnpm install
           npx playwright install --with-deps chromium
 
+      - name: Get Playwright version
+        id: pw-version
+        run: echo "version=$(node -p "require('./nuxt-app/package.json').devDependencies['@playwright/test'].replace('^','')")" >> $GITHUB_OUTPUT
+
       - name: Start services and wait for health checks
         run: |
           cd docker/test
@@ -89,8 +93,8 @@ jobs:
             -e APP_URL=http://app:3000 \
             -v ${{ github.workspace }}:/app \
             -w /app/nuxt-app \
-            mcr.microsoft.com/playwright:v1.54.0-noble \
-            bash -c "npm install @playwright/test && npx playwright test --project=visual"
+            mcr.microsoft.com/playwright:v${{ steps.pw-version.outputs.version }}-noble \
+            bash -c "npm install @playwright/test@${{ steps.pw-version.outputs.version }} && npx playwright test --project=visual"
 
       - name: Upload VRT screenshots
         if: failure()

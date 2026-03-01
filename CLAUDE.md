@@ -81,7 +81,7 @@ Voir `nuxt-app/.env.example` :
 
 ## Tests visuels (visual regression)
 
-Les tests visuels utilisent l'image Docker `mcr.microsoft.com/playwright:v1.54.0-noble` pour garantir un rendu identique en dev et en CI (mêmes fonts, même navigateur).
+Les tests visuels utilisent l'image Docker `mcr.microsoft.com/playwright:v1.54.1-noble` pour garantir un rendu identique en dev et en CI (mêmes fonts, même navigateur).
 
 **Mettre à jour les snapshots** (depuis un terminal hôte, pas le devcontainer) :
 
@@ -89,20 +89,23 @@ Les tests visuels utilisent l'image Docker `mcr.microsoft.com/playwright:v1.54.0
 # 1. Lancer l'app (depuis la racine du projet)
 cd docker/test && docker compose up -d --wait
 
-# 2. Mettre à jour les snapshots (monte tout le projet pour accès au lockfile)
+# 2. Lire la version Playwright depuis package.json
+PW_VERSION=$(node -p "require('./../../nuxt-app/package.json').devDependencies['@playwright/test'].replace('^','')")
+
+# 3. Mettre à jour les snapshots
 docker run --rm \
   --network nuxt-boilerplate-test_default \
   -e APP_URL=http://app:3000 \
   -v $(pwd)/../..:/app \
   -w /app/nuxt-app \
-  mcr.microsoft.com/playwright:v1.54.0-noble \
-  bash -c "npm install @playwright/test && npx playwright test --project=visual --update-snapshots"
+  mcr.microsoft.com/playwright:v${PW_VERSION}-noble \
+  bash -c "npm install @playwright/test@${PW_VERSION} && npx playwright test --project=visual --update-snapshots"
 
-# 3. Cleanup
+# 4. Cleanup
 docker compose down -v
 ```
 
-**Lors d'un bump de Playwright** : mettre à jour la version de l'image dans `CI.yaml` et dans les commandes ci-dessus (rechercher `mcr.microsoft.com/playwright:v`).
+La version Playwright est lue depuis `package.json` — plus besoin de la mettre à jour manuellement.
 
 ## CI/CD
 
