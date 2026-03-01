@@ -9,7 +9,7 @@ services:
     environment:
       NUXT_SITE_URL: http://localhost:3001
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3001"]
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000"]
       interval: 5s
       timeout: 3s
       retries: 5

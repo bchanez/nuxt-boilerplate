@@ -17,17 +17,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - run: corepack enable
+      - uses: actions/checkout@v6
 
       - uses: pnpm/action-setup@v4
-        name: Install pnpm
         with:
           run_install: false
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
         with:
           node-version: 22.x
           cache: pnpm
@@ -41,53 +38,26 @@ jobs:
           PR_TITLE="${{ github.event.pull_request.title }}"
           echo $PR_TITLE | npx commitlint
 
-      - name: Linter
-        run: cd nuxt-app && pnpm run lint
+      - name: Lint
+        run: cd nuxt-app && pnpm lint
 
       - name: Typecheck
-        run: cd nuxt-app && pnpm run typecheck
-
-      - name: Build
-        run: cd nuxt-app && pnpm build
-
-      - name: Install Playwright Browsers
-        run: npx playwright install
-
-      - name: Visual Regression Testing
-        run: cd nuxt-app && pnpm run test:visual
-
-      - name: Prepare VRT artifacts and generate updated visual snapshots
-        if: failure()
-        run: |
-          mkdir -p vrt-artifacts/test-results
-          cp -r nuxt-app/test-results/* vrt-artifacts/test-results/
-          cd nuxt-app && pnpm run test:visualupdate
-
-      - name: Upload Playwright screenshots
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-screenshots
-          path: |
-            vrt-artifacts/test-results/
-            nuxt-app/tests/visual/visual.spec.ts-snapshots/
+        run: cd nuxt-app && pnpm typecheck
 
   e2e:
     runs-on: ubuntu-latest
     needs: [ci]
+    if: ${{ needs.ci.result == 'success' }}
 
     steps:
-      - uses: actions/checkout@v4
-
-      - run: corepack enable
+      - uses: actions/checkout@v6
 
       - uses: pnpm/action-setup@v4
-        name: Install pnpm
         with:
           run_install: false
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
         with:
           node-version: 22.x
           cache: pnpm
@@ -112,6 +82,27 @@ jobs:
           cd docker/test
           docker compose logs app
 
+      - name: Visual Regression Testing
+        run: cd nuxt-app && pnpm test:visual
+        env:
+          CI: true
+
+      - name: Prepare VRT artifacts and generate updated visual snapshots
+        if: failure()
+        run: |
+          mkdir -p vrt-artifacts/test-results
+          cp -r nuxt-app/test-results/* vrt-artifacts/test-results/ 2>/dev/null || true
+          cd nuxt-app && pnpm test:visualupdate
+
+      - name: Upload VRT screenshots
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: playwright-screenshots
+          path: |
+            vrt-artifacts/test-results/
+            nuxt-app/tests/visual/visual.spec.ts-snapshots/
+
       - name: Run E2E tests
         run: |
           cd nuxt-app
@@ -121,7 +112,7 @@ jobs:
 
       - name: Upload E2E reports
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: e2e-reports
           path: nuxt-app/e2e/reports/

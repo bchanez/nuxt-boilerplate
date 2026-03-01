@@ -1,5 +1,4 @@
-import { createPage } from '@nuxt/test-utils'
-import { expect, test } from '@nuxt/test-utils/playwright'
+import { expect, test } from '@playwright/test'
 
 const viewports = [
   { name: 'mobile', width: 375, height: 812 },
@@ -10,8 +9,7 @@ const viewports = [
 
 const routes = ['/']
 
-test(`visual regression: all routes on all viewports`, async () => {
-  const page = await createPage()
+test(`visual regression: all routes on all viewports`, async ({ page }) => {
   for (const route of routes) {
     for (const viewport of viewports) {
       await page.setViewportSize({ width: viewport.width, height: viewport.height })
