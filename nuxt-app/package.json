@@ -12,9 +12,9 @@
     "lint:fix": "eslint . --fix",
     "prepare": "husky",
     "typecheck": "nuxt prepare && vue-tsc -b --noEmit",
-    "test:visual": "npx playwright test",
-    "test:visualupdate": "npx playwright test --update-snapshots",
-    "e2e": "playwright test --config e2e/playwright.config.ts"
+    "test:visual": "playwright test --project=visual",
+    "test:visualupdate": "playwright test --project=visual --update-snapshots",
+    "e2e": "playwright test --project=e2e"
   },
   "dependencies": {
     "@nuxt/eslint": "1.5.2",

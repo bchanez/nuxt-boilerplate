@@ -87,12 +87,9 @@ jobs:
         env:
           CI: true
 
-      - name: Prepare VRT artifacts and generate updated visual snapshots
+      - name: Generate updated visual snapshots
         if: failure()
-        run: |
-          mkdir -p vrt-artifacts/test-results
-          cp -r nuxt-app/test-results/* vrt-artifacts/test-results/ 2>/dev/null || true
-          cd nuxt-app && pnpm test:visualupdate
+        run: cd nuxt-app && pnpm test:visualupdate
 
       - name: Upload VRT screenshots
         if: failure()
@@ -100,7 +97,7 @@ jobs:
         with:
           name: playwright-screenshots
           path: |
-            vrt-artifacts/test-results/
+            nuxt-app/test-results/
             nuxt-app/tests/visual/visual.spec.ts-snapshots/
 
       - name: Run E2E tests
@@ -115,7 +112,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: e2e-reports
-          path: nuxt-app/e2e/reports/
+          path: nuxt-app/reports/
           retention-days: 7
 
       - name: Stop services

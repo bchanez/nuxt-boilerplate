@@ -47,8 +47,9 @@ nuxt-app/
 │   ├── customUi/       # Composants métier
 │   └── ui/             # Composants shadcn-nuxt (auto-générés)
 ├── composables/        # Composables Vue
-├── e2e/                # Tests E2E Playwright (standalone)
-├── tests/visual/       # Tests visual regression (@nuxt/test-utils)
+├── tests/
+│   ├── e2e/            # Tests E2E Playwright
+│   └── visual/         # Tests visual regression
 ├── layouts/            # Layouts Nuxt
 ├── plugins/            # Plugins Nuxt (ua-detect.server.ts)
 ├── public/img/         # Images statiques
@@ -56,7 +57,7 @@ nuxt-app/
 ├── assets/css/         # CSS global (Tailwind)
 ├── app.vue             # Composant racine
 ├── nuxt.config.ts      # Config Nuxt
-└── playwright.config.ts # Config Playwright (visual regression via test-utils)
+└── playwright.config.ts # Config Playwright (projects: visual + e2e)
 docker/
 ├── dev/                # Dockerfile dev (node 22 + outils)
 └── test/               # Dockerfile prod multi-stage
