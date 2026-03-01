@@ -34,7 +34,7 @@ pnpm lint:fix         # ESLint avec auto-fix
 pnpm typecheck        # Vérification TypeScript (vue-tsc)
 pnpm test:visual      # Tests visual regression (@nuxt/test-utils)
 pnpm test:visualupdate # Mettre à jour les snapshots visuels
-pnpm e2e              # Tests E2E Playwright (standalone, contre Docker)
+pnpm test:e2e         # Tests E2E Playwright (standalone, contre Docker)
 ```
 
 ## Structure

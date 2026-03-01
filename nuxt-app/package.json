@@ -6,7 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -14,7 +14,7 @@
     "typecheck": "nuxt prepare && vue-tsc -b --noEmit",
     "test:visual": "playwright test --project=visual",
     "test:visualupdate": "playwright test --project=visual --update-snapshots",
-    "e2e": "playwright test --project=e2e"
+    "test:e2e": "playwright test --project=e2e"
   },
   "dependencies": {
     "@nuxt/eslint": "1.5.2",

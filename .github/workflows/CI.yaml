@@ -103,7 +103,7 @@ jobs:
       - name: Run E2E tests
         run: |
           cd nuxt-app
-          pnpm e2e
+          pnpm test:e2e
         env:
           CI: true
 
