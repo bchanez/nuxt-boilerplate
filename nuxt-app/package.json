@@ -13,7 +13,8 @@
     "prepare": "husky",
     "typecheck": "nuxt prepare && vue-tsc -b --noEmit",
     "test:visual": "npx playwright test",
-    "test:visualupdate": "npx playwright test --update-snapshots"
+    "test:visualupdate": "npx playwright test --update-snapshots",
+    "e2e": "playwright test --config e2e/playwright.config.ts"
   },
   "dependencies": {
     "@nuxt/eslint": "1.5.2",

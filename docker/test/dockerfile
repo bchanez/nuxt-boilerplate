@@ -1,0 +1,18 @@
+FROM node:22-alpine AS build
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY nuxt-app/package.json ./nuxt-app/
+RUN npm install -g pnpm && pnpm install --filter nuxt-app
+
+COPY nuxt-app/ ./nuxt-app/
+RUN pnpm --filter nuxt-app build
+
+FROM node:22-alpine
+WORKDIR /app
+
+COPY --from=build /app/nuxt-app/.output .output
+
+EXPOSE 3000
+
+CMD ["node", ".output/server/index.mjs"]

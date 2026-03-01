@@ -6,8 +6,9 @@
 .cache
 dist
 
-# Node dependencies
+# Dependencies
 node_modules
+.pnpm-store
 
 # Logs
 logs
@@ -26,4 +27,6 @@ logs
 # Sanity
 .sanity
 
-test-results/
+# Test
+test-results
+reports

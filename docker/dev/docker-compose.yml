@@ -8,3 +8,5 @@ services:
     volumes:
       - ../..:/app
       - ../../../claude:/app/.claude/rules/shared
+      - ../../../claude/settings.json:/app/.claude/settings.json
+      - /var/run/docker.sock:/var/run/docker.sock

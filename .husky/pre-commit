@@ -1,1 +1,2 @@
-pnpm run lint
+pnpm --filter nuxt-app lint
+pnpm --filter nuxt-app typecheck
