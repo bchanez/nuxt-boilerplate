@@ -1,11 +1,6 @@
 name: CI
 
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - edited
   push:
 
 concurrency:
