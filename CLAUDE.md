@@ -99,7 +99,7 @@ docker run --rm \
   -v $(pwd)/../..:/app \
   -w /app/nuxt-app \
   mcr.microsoft.com/playwright:v${PW_VERSION}-noble \
-  bash -c "npm install --ignore-scripts @playwright/test@${PW_VERSION} && npx playwright test --project=visual --update-snapshots"
+  bash -c "cd /tmp && npm install @playwright/test@${PW_VERSION} && cd /app/nuxt-app && NODE_PATH=/tmp/node_modules npx playwright test --project=visual --update-snapshots"
 
 # 4. Cleanup
 docker compose down -v

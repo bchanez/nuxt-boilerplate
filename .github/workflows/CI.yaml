@@ -91,7 +91,7 @@ jobs:
             -v ${{ github.workspace }}:/app \
             -w /app/nuxt-app \
             mcr.microsoft.com/playwright:v${{ steps.pw-version.outputs.version }}-noble \
-            bash -c "npm install --ignore-scripts @playwright/test@${{ steps.pw-version.outputs.version }} && npx playwright test --project=visual"
+            bash -c "cd /tmp && npm install @playwright/test@${{ steps.pw-version.outputs.version }} && cd /app/nuxt-app && NODE_PATH=/tmp/node_modules npx playwright test --project=visual"
 
       - name: Upload VRT screenshots
         if: failure()
