@@ -1,0 +1,33 @@
+# Git
+.git
+
+# Build outputs
+**/dist
+
+# Dependencies
+**/node_modules
+.pnpm-store
+
+# Test reports & coverage
+**/reports
+**/coverage
+**/test-results
+
+# Environment
+.env
+
+# OS files
+.DS_Store
+
+# Logs
+logs
+
+# IDE & tooling
+.vscode
+.claude
+.continue
+.devcontainer
+.github
+
+# Documentation
+*.md
