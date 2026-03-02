@@ -1,32 +1,23 @@
-# Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
+# Build outputs
+target
 dist
+.nuxt
+.output
 
 # Dependencies
 node_modules
 .pnpm-store
 
+# Test reports & coverage
+reports
+coverage
+test-results
+
+# Environment & secrets
+.env
+
+# OS files
+.DS_Store
+
 # Logs
 logs
-*.log
-
-# Misc
-.DS_Store
-.fleet
-.idea
-
-# Local env files
-.env
-.env.*
-!.env.example
-
-# Sanity
-.sanity
-
-# Test
-test-results
-reports
