@@ -41,12 +41,12 @@
 
     <div class="container max-w-7xl mx-auto px-4 py-2 text-center">
       <p>
-        © 2025 [entreprise] — Réalisé et maintenu par B. CHANEZ CONSULTANT & <a
-          href="https://ar-web-consulting.vercel.app/"
+        © 2025 [entreprise] — Réalisé et maintenu par <a
+          href="https://www.linkedin.com/in/bastien-chanez/"
           target="_blank"
           rel="noopener noreferrer"
           class="hover:underline cursor-pointer"
-        >A. RIEFOLO WEB CONSULTING</a>
+        >B. Chanez Consultant</a>
       </p>
     </div>
   </footer>
