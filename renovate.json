@@ -1,17 +1,23 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "baseBranches": ["main"],
+  "baseBranchPatterns": ["main"],
   "minimumReleaseAge": "7 days",
-  "schedule": ["before 9am on monday"],
+  "schedule": ["before 9am on the first day of the month"],
+  "rebaseWhen": "conflicted",
+  "vulnerabilityAlerts": {
+    "schedule": ["at any time"],
+    "labels": ["security"]
+  },
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "groupName": "non-major dependencies",
+      "groupName": "monthly dependencies",
       "automerge": true
     },
     {
       "matchUpdateTypes": ["major"],
+      "groupName": "monthly dependencies",
       "automerge": false,
       "labels": ["breaking"],
       "minimumReleaseAge": "14 days"
@@ -19,7 +25,8 @@
   ],
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["before 9am on monday"]
+    "schedule": ["before 9am on the first day of the month"],
+    "groupName": "monthly dependencies"
   },
   "platformAutomerge": false,
   "dependencyDashboard": true,
