@@ -95,7 +95,7 @@ PW_VERSION=$(node -p "require('./../../nuxt-app/package.json').devDependencies['
 # 3. Mettre à jour les snapshots
 docker run --rm \
   --network nuxt-boilerplate-test_default \
-  -e APP_URL=http://app:3000 \
+  -e APP_URL=http://web:3000 \
   -v $(pwd)/../..:/app \
   -w /app/nuxt-app \
   mcr.microsoft.com/playwright:v${PW_VERSION}-noble \

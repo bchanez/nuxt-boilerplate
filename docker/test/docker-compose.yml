@@ -4,6 +4,14 @@ services:
     build:
       context: ../../
       dockerfile: docker/test/dockerfile
+    # Alias réseau `web` : le hostname `app` tombe sous le TLD `.app`, préchargé
+    # HSTS dans Chromium (gTLD Google, HTTPS-only). Les Chromium récents (Playwright
+    # >= 1.6x) forcent donc https:// sur http://app:3000 → ERR_SSL_PROTOCOL_ERROR.
+    # Les tests Playwright se connectent via http://web:3000 pour contourner ça.
+    networks:
+      default:
+        aliases:
+          - web
     ports:
       - 3001:3000
     environment:
