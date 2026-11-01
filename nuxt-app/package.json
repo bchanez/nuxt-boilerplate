@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@nuxt/eslint": "1.17.0",
-    "@nuxt/image": "2.1.0",
+    "@nuxt/image": "2.2.0",
     "@nuxtjs/robots": "5.7.1",
     "@nuxtjs/sitemap": "7.6.2",
     "@tailwindcss/vite": "4.3.3",
@@ -29,7 +29,7 @@
     "clsx": "2.1.1",
     "lucide-vue-next": "0.577.0",
     "motion-v": "1.10.3",
-    "nuxt": "4.6.1",
+    "nuxt": "4.6.2",
     "reka-ui": "2.11.0",
     "shadcn-nuxt": "2.8.2",
     "tailwind-merge": "3.7.0",
